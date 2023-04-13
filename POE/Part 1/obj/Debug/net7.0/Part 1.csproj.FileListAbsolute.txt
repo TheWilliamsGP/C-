@@ -1,0 +1,15 @@
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/bin/Debug/net7.0/Part 1
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/bin/Debug/net7.0/Part 1.deps.json
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/bin/Debug/net7.0/Part 1.runtimeconfig.json
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/bin/Debug/net7.0/Part 1.dll
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/bin/Debug/net7.0/Part 1.pdb
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.csproj.AssemblyReference.cache
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.AssemblyInfoInputs.cache
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.AssemblyInfo.cs
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.csproj.CoreCompileInputs.cache
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.dll
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/refint/Part 1.dll
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.pdb
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/Part 1.genruntimeconfig.cache
+/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/Debug/net7.0/ref/Part 1.dll
