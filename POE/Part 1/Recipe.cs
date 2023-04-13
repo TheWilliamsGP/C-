@@ -3,14 +3,14 @@ namespace POE
 {
     public class Recipe
     {
-        // Initialize recipe variables
+        // Initialise recipe variables
         int numIngredients = 0;
         int numSteps = 0;
         string[] ingredients; //Array to store ingredient names
         double[] quantities; //Array to store ingredient quantities
         string[] units;     //Array to store ingredient units
         string[] steps;    //Array to store step descriptions
-        double[] quanty;
+        double[] quantity;
         double q;
         public void Display()
         {
@@ -22,7 +22,7 @@ namespace POE
             ingredients = new string[numIngredients];
             quantities = new double[numIngredients];
             units = new string[numIngredients];
-            quanty = new double[numIngredients];
+            quantity = new double[numIngredients];
 
 
             for (int i = 0; i < numIngredients; i++)
@@ -34,7 +34,7 @@ namespace POE
                 Console.WriteLine("Enter the quantity of ingredient " + $"{i + 1}:");
                 q = Convert.ToDouble(Console.ReadLine());
                 quantities[i] = q;
-                quanty[i] = quantities[i];
+                quantity[i] = quantities[i];
 
 
                 Console.WriteLine("Enter the unit of measurement for ingredient " + $"{i + 1}:");
@@ -78,14 +78,14 @@ namespace POE
 
             for (int i = 0; i < numIngredients; i++)
             {
-                quanty[i] *= Factor;
+                quantity[i] *= Factor;
             }
 
             Console.WriteLine("\nScaled recipe:");
             Console.WriteLine("______________________________\nIngredients:\n________________________________");
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + quanty[i] + " " + units[i] + " " + ingredients[i]);
+                Console.WriteLine($"{i + 1}" + ". " + quantity[i] + " " + units[i] + " " + ingredients[i]);
             }
 
             Console.WriteLine("________________________________\nSteps:\n________________________________");
