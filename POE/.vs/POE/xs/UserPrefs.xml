@@ -3,17 +3,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Part 1/Recipe.cs">
     <Files>
-      <File FileName="Part 1/Program.cs" Line="41" Column="2" />
-      <File FileName="Part 1/Recipe.cs" Line="6" Column="21" />
+      <File FileName="Part 1/Program.cs" />
+      <File FileName="Part 1/Recipe.cs" Line="25" Column="51" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="POE" expanded="True">
-            <Node name="Part 1" expanded="True">
-              <Node name="Recipe.cs" selected="True" />
-            </Node>
-          </Node>
+          <Node name="POE" expanded="True" />
         </State>
       </Pad>
     </Pads>
