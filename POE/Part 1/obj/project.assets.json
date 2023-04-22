@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sadeeqwilliams/Projects/C-/POE/Part 1/Part 1.csproj",
+      "projectUniqueName": "/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 1/Part 1.csproj",
       "projectName": "Part 1",
-      "projectPath": "/Users/sadeeqwilliams/Projects/C-/POE/Part 1/Part 1.csproj",
+      "projectPath": "/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 1/Part 1.csproj",
       "packagesPath": "/Users/sadeeqwilliams/.nuget/packages/",
-      "outputPath": "/Users/sadeeqwilliams/Projects/C-/POE/Part 1/obj/",
+      "outputPath": "/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 1/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sadeeqwilliams/.nuget/NuGet/NuGet.Config"
