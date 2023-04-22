@@ -1,33 +1,42 @@
 ﻿using POE;
-
+using System;
 internal class Program
 {
+    //Calling the main method
     private static void Main(string[] args)
     {
-        int ch = 4;
-        Recipe obj = new Recipe();
+        int cl = 4;
 
-        obj.Display();
+        //declare an object in main or from outside the class
+        Recipe recipe = new Recipe();
 
+        //Calling the display method from recipe
+        recipe.Display();
+
+        // Do while loop to run until the user selcets the number to quit
         do
         {
-            Console.WriteLine("\nPress \n1 to Scale the recipe:\n 2 to reset the recipe,\n 3 to clearthe recipe,\n 4 to exit");
-            ch = Convert.ToInt32(Console.ReadLine());
-            switch (ch)
+
+            // Switch case to promp the user to select what to do from the list 
+            Console.WriteLine("\nPress \n1 to Scale the recipe:\n2 to reset the recipe,\n3 to clear the recipe,\n4 to exit");
+            cl = Convert.ToInt32(Console.ReadLine());
+
+
+            switch (cl)
             {
                 case 1:
-
-                    obj.Scalling();
+                    //Calling the scaling method from recipe
+                    recipe.Scaling();
                     break;
 
                 case 2:
-
-                    obj.Reset();
+                    //Calling the reset method from recipe
+                    recipe.Reset();
                     break;
 
                 case 3:
-
-                    obj.Clear();
+                    //Calling the clear method from recipe
+                    recipe.Clear();
                     break;
 
                 case 4:
@@ -36,6 +45,8 @@ internal class Program
                     break;
             }
 
-        } while (ch != 4);
+        } while (cl != 4);
     }
 }
+
+
