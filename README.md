@@ -95,5 +95,5 @@ showing the display method
 }
 
 ## Screenshots
-
+ The screenshot shows the finished display() method in the terminal  
 ![Display output](https://drive.google.com/uc?id=1knJG8yP6waJ-QmIx5S3R8mP_STt1tLg8)
