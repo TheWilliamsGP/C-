@@ -51,7 +51,7 @@ namespace POE
                 steps[i] = Console.ReadLine();
             }
 
-            // Display the recipe
+            // Display the recipe that was stored
             Console.WriteLine("\nIngredients:\n________________________________");
             for (int i = 0; i < numIngredients; i++)
             {
@@ -67,7 +67,7 @@ namespace POE
 
 
         //Prompt the user to either double half triple the recipe
-        public void Scalling()
+        public void Scaling()
 
         {
             double Factor;
@@ -120,25 +120,39 @@ namespace POE
         public void Clear()
         {
 
-            ingredients = new string[0];
-            quantities = new double[0];
-            units = new string[0];
-            steps = new string[0];
-
-            Console.WriteLine("\nAll data cleared press 1 to enter a new recipe or 2 to return to menu:");
-            int scaleOption = Convert.ToInt32(Console.ReadLine());
-
-            if (scaleOption == 1)
+            string select;
+            Console.WriteLine("Are you sure you want to clear the recipe y/n");
+            select = Console.ReadLine();
+            if (select == "y")
             {
-                Display();
+                //Reset all arrays to equal nothing
+                ingredients = new string[0];
+                quantities = new double[0];
+                units = new string[0];
+                steps = new string[0];
+
+                Console.WriteLine("\nAll data cleared press 1 to enter a new recipe or 2 to return to menu:");
+                int scaleOption = Convert.ToInt32(Console.ReadLine());
+
+                if (scaleOption == 1)
+                {
+                    Display();
+                }
+                else Console.WriteLine("Returning to menu");
+
             }
-            else Console.WriteLine("Returning to menu");
+            else if (select == "n")
+            {
+
+                Console.WriteLine("Returing to the menu");
+
+
+            }
         }
 
     }
 
 }
-
 
 
 
