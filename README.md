@@ -27,7 +27,7 @@ You will then be prompted with a question asking if the recipe should be scaled,
 
 These are differet methods to the program will execute on selection.
 
-Selecting() the scaling method would allow you to either half, double or triple the quantities of the ingredients that was stored in the the arrays.
+Scaling() the scaling method would allow you to either half, double or triple the quantities of the ingredients that was stored in the the arrays.
 
 The Reset() allows the user to restore the ingredients quantities back to the original value.
 
