@@ -1,0 +1,15 @@
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/bin/Debug/net7.0/Part 2
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/bin/Debug/net7.0/Part 2.deps.json
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/bin/Debug/net7.0/Part 2.runtimeconfig.json
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/bin/Debug/net7.0/Part 2.dll
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/bin/Debug/net7.0/Part 2.pdb
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.csproj.AssemblyReference.cache
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.AssemblyInfoInputs.cache
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.AssemblyInfo.cs
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.csproj.CoreCompileInputs.cache
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.dll
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/refint/Part 2.dll
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.pdb
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/Part 2.genruntimeconfig.cache
+/Users/sadeeqwilliams/Documents/GitHub/C-/POE/Part 2/obj/Debug/net7.0/ref/Part 2.dll

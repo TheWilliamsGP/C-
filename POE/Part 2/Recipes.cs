@@ -7,72 +7,78 @@ namespace POE
     {
         // Initialise recipe variables
         int numIngredients = 0;
-        int numSteps;
-        List<String> myingrediants = new List<String>();
+        int numSteps = 0;
+        int numRecipe = 0;
+        List<String> myingredients = new List<String>();
         List<Double> myquantities = new List<Double>();
         List<String> myunits = new List<String>();
-        List<int> mysteps = new List<int>();
+        List<string> mysteps = new List<string>();
         List<Double> myquantity = new List<double>();
-        //string[] ingredients; //Array to store ingredient names
-        //double[] quantities; //Array to store ingredient quantities
-        //string[] units;     //Array to store ingredient units
-        //string[] steps;    //Array to store step descriptions
-        //double[] quantity;
+        List<String> myRecipe = new List<String>();
         double q;
-        public void Display()
+
+        public void newRecipe()
         {
             Console.WriteLine("Enter the number of Recipes to enter:");
-
-            Console.WriteLine("Enter the name of recipe:");
-
-
-            // Prompt user for recipe details
-            Console.WriteLine("Enter the number of ingredients:");
-
-            numIngredients = Convert.ToInt32(Console.ReadLine());
-            ////ingredients = new string[numIngredients];
-            //quantities = new double[numIngredients];
-            //units = new string[numIngredients];
-            //quantity = new double[numIngredients];
-
-
-            for (int i = 0; i < numIngredients; i++)
+            numRecipe = Convert.ToInt32(Console.ReadLine());
+            for (int j = 0; j <numRecipe; j++)
             {
-                Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
-                String ingrediants = Console.ReadLine();
-                myingrediants.Add(ingrediants);
+               
+                Console.WriteLine("Enter the name of recipe:");
+                string recipeName = Console.ReadLine();
+                myRecipe.Add(recipeName);
 
-                Console.WriteLine("Enter the quantity of ingredient " + $"{i + 1}:");
-                q = Convert.ToDouble(Console.ReadLine());
-                myquantity.Add(q);
+                // Prompt user for recipe details
+                Console.WriteLine("Enter the number of ingredients:");
+
+                    numIngredients = Convert.ToInt32(Console.ReadLine());
+
+                for (int i = 0; i < numIngredients; i++)
+                {
+                    Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
+                    String ingrediants = Console.ReadLine();
+                    myingredients.Add(ingrediants);
+
+                    Console.WriteLine("Enter the quantity of ingredient " + $"{i + 1}:");
+                    q = Convert.ToDouble(Console.ReadLine());
+                    myquantities.Add(q);
 
 
-                Console.WriteLine("Enter the unit of measurement for ingredient " + $"{i + 1}:");
-                String units = Console.ReadLine();
-                myunits.Add(units);
+                    Console.WriteLine("Enter the unit of measurement for ingredient " + $"{i + 1}:");
+                    String units = Console.ReadLine();
+                    myunits.Add(units);
+                }
+
+                Console.WriteLine("Enter the number of steps:");
+                numSteps = Convert.ToInt32(Console.ReadLine());
+
+
+
+                for (int i = 0; i < numSteps; i++)
+                {
+                    Console.WriteLine("Enter the description of step " + $"{i + 1}:");
+                    string steps = Console.ReadLine();
+                    mysteps.Add(steps);
+                }
             }
-
-            Console.WriteLine("Enter the number of steps:");
-            numSteps = Convert.ToInt32(Console.ReadLine());
-            
-            mysteps.Add(numSteps); ;
-
-            for (int i = 0; i < numSteps; i++)
+        }
+        public void Display()
+{
+            Console.WriteLine("________________________________");
+            for (int i = 0; i < numRecipe; i++)
             {
-                Console.WriteLine("Enter the description of step " + $"{i + 1}:");
-                 = Console.ReadLine();
+                Console.WriteLine($"{i + 1}" + ". " + myRecipe[i]);
             }
-
             // Display the recipe that was stored
-            Console.WriteLine("\nIngredients:\n________________________________");
+             Console.WriteLine("\nIngredients:\n________________________________");
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + quantities[i] + " " + units[i] + " " + ingredients[i]);
+                Console.WriteLine($"{i + 1}" + ". " + myquantities[i] + " " + myunits[i] + " " + myingredients[i]);
             }
             Console.WriteLine("________________________________\nSteps:\n________________________________");
             for (int i = 0; i < numSteps; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + steps[i]);
+                Console.WriteLine($"{i + 1}" + ". " + mysteps[i]);
             }
 
         }
@@ -90,20 +96,20 @@ namespace POE
 
             for (int i = 0; i < numIngredients; i++)
             {
-                quantity[i] *= Factor;
+                myquantity[i] *= Factor;
             }
 
             Console.WriteLine("\nScaled recipe:");
             Console.WriteLine("______________________________\nIngredients:\n________________________________");
             for (int i = 0; i < numIngredients; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + quantity[i] + " " + units[i] + " " + ingredients[i]);
+                Console.WriteLine($"{i + 1}" + ". " + myquantity[i] + " " + myunits[i] + " " + myingredients[i]);
             }
 
             Console.WriteLine("________________________________\nSteps:\n________________________________");
             for (int i = 0; i < numSteps; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + steps[i]);
+                Console.WriteLine($"{i + 1}" + ". " + mysteps[i]);
             }
 
         }
@@ -117,14 +123,14 @@ namespace POE
             for (int i = 0; i < numIngredients; i++)
             {
 
-                Console.WriteLine(quantities[i] + units[i] + " " + ingredients[i]);
+                Console.WriteLine(myquantities[i] + myunits[i] + " " + myingredients[i]);
 
 
             }
             Console.WriteLine("________________________________\nSteps:\n________________________________");
             for (int i = 0; i < numSteps; i++)
             {
-                Console.WriteLine($"{i + 1}" + ". " + steps[i]);
+                Console.WriteLine($"{i + 1}" + ". " + mysteps[i]);
             }
         }
 
@@ -138,10 +144,10 @@ namespace POE
             if (select == "y")
             {
                 //Reset all arrays to equal nothing
-                ingredients = new string[0];
-                quantities = new double[0];
-                units = new string[0];
-                steps = new string[0];
+                //ingredients = new string[0];
+                //quantities = new double[0];
+                //units = new string[0];
+                //steps = new string[0];
 
                 Console.WriteLine("\nAll data cleared press 1 to enter a new recipe or 2 to return to menu:");
                 int scaleOption = Convert.ToInt32(Console.ReadLine());
