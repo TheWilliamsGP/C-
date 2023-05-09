@@ -1,67 +1,163 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
+
 namespace POE
 
 {
-    public class Recipes
+    public class Ingredients
     {
-        // Initialise recipe variables
-        int numIngredients = 0;
-        int numSteps = 0;
-        int numRecipe = 0;
-        List<String> myingredients = new List<String>();
-        List<Double> myquantities = new List<Double>();
-        List<String> myunits = new List<String>();
-        List<string> mysteps = new List<string>();
-        List<Double> myquantity = new List<double>();
-        List<String> myRecipe = new List<String>();
-        double q;
+        public string recipeName { get; set; }
+        public double myquantities { get; set; }
+        public string myunits { get; set; }
+    }
 
-        public void newRecipe()
+    //class Recipe {
+    //    List<Ingredients> ingredients = new List<Ingredients>();
+    //}
+    //public class Recipe
+    //{
+
+    //    private List<string> ingredients = new List<string>();
+
+    //    public List<string> recipeName
+    //    {
+    //        get { return recipeName; }
+    //        set { recipeName = value; }
+
+    //        get { return myquantities; }
+    //        set { myquantities = value; }
+
+    //    }
+    //    private List<string> steps = new List<string>();
+
+    //}
+
+
+    //class Ingredients
+    //{
+    //    public string recipeName { get; set; }
+    //    public double myquantities { get; set; }
+    //    public string myunits { get; set; }
+
+    //}
+
+    //class Step
+    //{
+    //    public string mySteps { get; set; }
+    //}
+    //class Recipes
+    //{
+    //    // Initialise recipe variables
+
+
+    // int numIngredients = 0;
+    //int numSteps = 0;
+    //public string recipeName { get; set; }
+    //List<Ingredients> myingredients = new List<Ingredients>();
+    //List<Step> mysteps = new List<Step>();
+    //public Recipes(string name, List<Ingredients> myingredient, List<Step> steps)
+    //{
+    //    recipeName = name;
+    //    myingredients = myingredient;
+    //    mysteps = steps;
+    //}
+
+
+    //class Recipebook
+    //{
+    //    private List<Recipes> recipes;
+
+    //    public Recipebook()
+    //    {
+    //        recipes = new List<Recipes>();
+    //    }
+    //    public void newRecipe(Recipes recipe)
+    //    {
+    //        recipes.Add(recipe);
+
+    //    }
+
+    //    public void RemoveRecipe(Recipes recipe)
+    //    {
+    //        recipes.Remove(recipe);
+    //    }
+    //    public List<Recipes> GetRecipes()
+    //    {
+    //        return recipes;
+    //    }
+    //    public Recipes GetRecipesByName(string name)
+    //    {
+    //        foreach (Recipes recipes in recipes)
+    //        {
+    //            if (recipes.recipeName == name)
+    //            {
+    //                return recipes;
+    //            }
+    //        }
+    //        return null;
+    //    }
+    //}
+
+
+    //}
+    //class book
+    //{
+    //    private Recipebook recipebook;
+    //}
+    //public book()
+    //{
+    //    recipebook = new recipeBook();
+    //}
+    public void newRecipe()
         {
-            Console.WriteLine("Enter the number of Recipes to enter:");
-            numRecipe = Convert.ToInt32(Console.ReadLine());
-            for (int j = 0; j <numRecipe; j++)
-            {
-               
-                Console.WriteLine("Enter the name of recipe:");
+       
+    
+    // Console.WriteLine("Enter the number of Recipes to enter:");
+    //int numRecipe = Convert.ToInt32(Console.ReadLine());
+    // for (int j = 0; j <numRecipe; j++)
+
+
+    Console.WriteLine("Enter the name of recipe:");
                 string recipeName = Console.ReadLine();
-                myRecipe.Add(recipeName);
+      
+      
 
-                // Prompt user for recipe details
-                Console.WriteLine("Enter the number of ingredients:");
+            // Prompt user for recipe details
+            Console.WriteLine("Enter the number of ingredients:");
 
-                    numIngredients = Convert.ToInt32(Console.ReadLine());
+                  int numIngredients = Convert.ToInt32(Console.ReadLine());
 
                 for (int i = 0; i < numIngredients; i++)
                 {
                     Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
                     String ingrediants = Console.ReadLine();
-                    myingredients.Add(ingrediants);
+
 
                     Console.WriteLine("Enter the quantity of ingredient " + $"{i + 1}:");
-                    q = Convert.ToDouble(Console.ReadLine());
-                    myquantities.Add(q);
+                    double quantities = Convert.ToDouble(Console.ReadLine());
+
 
 
                     Console.WriteLine("Enter the unit of measurement for ingredient " + $"{i + 1}:");
                     String units = Console.ReadLine();
-                    myunits.Add(units);
-                }
 
+
+            ingredients.Add(new Ingredients { myquantities = quantities, myunits = units });
+                }
                 Console.WriteLine("Enter the number of steps:");
-                numSteps = Convert.ToInt32(Console.ReadLine());
+               int numSteps = Convert.ToInt32(Console.ReadLine());
 
 
 
                 for (int i = 0; i < numSteps; i++)
                 {
                     Console.WriteLine("Enter the description of step " + $"{i + 1}:");
-                    string steps = Console.ReadLine();
-                    mysteps.Add(steps);
+                    string mysteps = Console.ReadLine();
+                
                 }
             }
-        }
+        
         public void Display()
 {
             Console.WriteLine("________________________________");

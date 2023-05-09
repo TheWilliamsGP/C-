@@ -2,9 +2,11 @@
 using System;
 internal class Program
 {
+
     //Calling the main method
     private static void Main(string[] args)
     {
+
         int cl = 6;
 
         //declare an object in main or from outside the class
