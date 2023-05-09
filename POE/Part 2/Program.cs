@@ -1,5 +1,9 @@
-﻿namespace POE;
+﻿
 using System;
+using System.Numerics;
+
+
+namespace POE;
 internal class Program
 {
 
@@ -29,6 +33,7 @@ internal class Program
                 case 1:
                     //adding a reipce
                     recipe.newRecipe();
+                    
                     break;
 
                 case 2:
