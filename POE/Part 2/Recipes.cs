@@ -14,10 +14,9 @@ namespace POE
         public string ingrediant { get; set; }
         public double quantities { get; set; }
         public string units { get; set; }
-        public double defaultQuantity { get; set; }
+        public double quantity { get; set; }
         public int Calories { get; set; }
-        //public int TotalCalories { get; private set; }
-
+        
 
         public Ingredient(string recname, string ingrediants, double quantity, string unit, int calories)
         {
@@ -25,7 +24,7 @@ namespace POE
             ingrediant = ingrediants;
             quantities = quantity;
             units = unit;
-            defaultQuantity = quantity;
+            quantity = quantity;
             Calories = calories;
             
         }
@@ -35,14 +34,14 @@ namespace POE
         {
             public List<Ingredient> Ingredients { get; set; }
             public List<string> Steps { get; set; }
-            // public int TotalCalories { get; private set; }
+            
              
 
         public Recipe()
             {
                 Ingredients = new List<Ingredient>();
                 Steps = new List<string>();
-                //TotalCalories = CalculateTotalCalories();
+                
         }
            
 
@@ -115,7 +114,7 @@ namespace POE
             foreach (var ingredient in rec.Ingredients)
             {
 
-                Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant}, {ingredient.Calories} calories");
+                Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
             }
 
             Console.WriteLine("________________________________\nSteps:\n________________________________");
@@ -134,7 +133,7 @@ namespace POE
 
             if (totalCalories > 300)
             {
-                Console.WriteLine("WARNING: Recipe exceeds 300 calories!");
+                Console.WriteLine("Warning: The recipe exceeds 300 calories!");
             }else
             {
                 Console.WriteLine("Recipe is healthy");
@@ -158,7 +157,7 @@ namespace POE
             foreach (var ingredient in rec.Ingredients)
             {
 
-                ingredient.quantities = ingredient.defaultQuantity;
+                ingredient.quantities = ingredient.quantity;
             }
         }
         public void Clear()
