@@ -49,11 +49,13 @@ namespace POE
         class recipeBook
         {
             private List<Recipe> recipes;
-
+        
             public recipeBook()
             {
-                recipes = new List<Recipe>();
-            }
+            
+            recipes = new List<Recipe>();
+            
+        }
 
             public void newRecipe(Recipe recipe)
             {
@@ -67,8 +69,10 @@ namespace POE
 
             public List<Recipe> GetRecipeList()
             {
-                return recipes;
-            }
+            
+            return recipes;
+           
+        }
 
             public Recipe GetRecipeByName(string recname)
             {
@@ -155,52 +159,96 @@ namespace POE
                 Console.WriteLine($"Recipe'{recipename}' wass added");
             }
 
-            public void Display()
+        public void Display()
+        {
+
+            Console.WriteLine("List of recipes");
+
+            foreach (Recipe recipe in recipebook.GetRecipeList())
+
             {
-                Console.WriteLine("List of recipes");
 
-                foreach (Recipe recipe in recipebook.GetRecipeList())
-                {
-                    Console.WriteLine(recipe.recipeName);
-                }
-                //ConsoleColor prevColor = Console.ForegroundColor;
-                //Console.ForegroundColor = ConsoleColor.Yellow;
-
-                //foreach (var ingredient in rec.Ingredients)
-                //{
-                //    Console.WriteLine("Recipe Name: " + $"{ingredient.recipename}");
-                //}
-                //Console.ForegroundColor = prevColor;
-
-                //Console.WriteLine("________________________________\nIngredients:\n________________________________");
-                //foreach (var ingredient in recipe.Ingredients)
-                //{
-
-                //    Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
-                //}
-
-                //Console.WriteLine("________________________________\nSteps:\n________________________________");
-                //for (int i = 0; i < recipe.Steps.Count; i++)
-                //{
-                //    Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
-                //}
-
-                //int totalCalories = 0;
-                //foreach (var ingredient in recipe.Ingredients)
-                //    {
-                //    totalCalories += ingredient.Calories;
-                //    }
-
-                //Console.WriteLine($"Total calories: {totalCalories}");
-
-                //if (totalCalories > 300)
-                //{
-                //    Console.WriteLine("Warning: The recipe exceeds 300 calories!");
-                //}else
-                //{
-                //    Console.WriteLine("Recipe is healthy");
-                //}
+                Console.WriteLine(recipe.recipeName);
             }
+        
+            Console.WriteLine("\n Enter a recipe name to view ingredients");
+            string name = Console.ReadLine();
+
+        
+ 
+            
+            if (recipebook.GetRecipeByName != null)
+            {
+                Console.WriteLine($"Recipe {name}");
+                Console.WriteLine("________________________________\nIngredients:\n________________________________");
+                foreach (var ingredient in recipe.Ingredients)
+                {
+
+                    Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
+                }
+
+                Console.WriteLine("________________________________\nSteps:\n________________________________");
+                for (int i = 0; i < recipe.Steps.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
+                }
+                int totalCalories = 0;
+                foreach (var ingredient in recipe.Ingredients)
+                {
+                    totalCalories += ingredient.Calories;
+                }
+
+                Console.WriteLine($"Total calories: {totalCalories}");
+
+                if (totalCalories > 300)
+                {
+                    Console.WriteLine("Warning: The recipe exceeds 300 calories!");
+                }
+                else
+                {
+                    Console.WriteLine("Recipe is healthy");
+                }
+
+            }
+
+            //ConsoleColor prevColor = Console.ForegroundColor;
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+
+            //foreach (var ingredient in rec.Ingredients)
+            //{
+            //    Console.WriteLine("Recipe Name: " + $"{ingredient.recipename}");
+            //}
+            //Console.ForegroundColor = prevColor;
+
+            //Console.WriteLine("________________________________\nIngredients:\n________________________________");
+            //foreach (var ingredient in recipe.Ingredients)
+            //{
+
+            //    Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
+            //}
+
+            //Console.WriteLine("________________________________\nSteps:\n________________________________");
+            //for (int i = 0; i < recipe.Steps.Count; i++)
+            //{
+            //    Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
+            //}
+
+            //int totalCalories = 0;
+            //foreach (var ingredient in recipe.Ingredients)
+            //    {
+            //    totalCalories += ingredient.Calories;
+            //    }
+
+            //Console.WriteLine($"Total calories: {totalCalories}");
+
+            //if (totalCalories > 300)
+            //{
+            //    Console.WriteLine("Warning: The recipe exceeds 300 calories!");
+            //}else
+            //{
+            //    Console.WriteLine("Recipe is healthy");
+            //}
+        }
             public void Scaling()
             {
                 //    double factor;
