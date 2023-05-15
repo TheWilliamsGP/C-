@@ -1,5 +1,6 @@
 ﻿
 using System;
+using POE;
 using System.Numerics;
 
 
@@ -14,7 +15,7 @@ internal class Program
         int cl = 6;
 
         //declare an object in main or from outside the class
-        Recipes recipe = new Recipes();
+        Recipes1 recipe = new Recipes1();
 
 
         Console.WriteLine("Welcome to the recipe book");
@@ -33,6 +34,7 @@ internal class Program
                 case 1:
                     //adding a reipce
                     recipe.newRecipe();
+                    
                     
                     break;
 
@@ -66,4 +68,9 @@ internal class Program
     }
 }
 
-
+internal class Recipes
+{
+    public Recipes()
+    {
+    }
+}
