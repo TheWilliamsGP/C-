@@ -32,9 +32,10 @@ namespace POE
     }
     class Recipe
     {
+        public string recipeName { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public List<string> Steps { get; set; }
-        public string recipeName { get; set; }
+       
 
 
         public Recipe(string recname)
@@ -111,9 +112,9 @@ namespace POE
             {
 
                 Console.WriteLine("Enter the name of recipe:");
-                string recipename = Console.ReadLine();
+                string recipeName = Console.ReadLine();
 
-                Recipe recipe = new Recipe(recipename);
+                Recipe recipe = new Recipe(recipeName);
 
                 // Prompt user for recipe details
                 Console.WriteLine("Enter the number of ingredients:");
@@ -139,7 +140,7 @@ namespace POE
                     int calories = Convert.ToInt32(Console.ReadLine());
 
 
-                    recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories));
+                    recipe.Ingredients.Add(new Ingredient( ingrediants, quantities, units, calories));
 
                 }
                 Console.WriteLine("Enter the number of steps:");
@@ -156,36 +157,42 @@ namespace POE
                 }
 
                 recipebook.newRecipe(recipe);
-                Console.WriteLine($"Recipe'{recipename}' wass added");
+                Console.WriteLine($"Recipe'{recipeName}' wass added");
             }
 
         public void Display()
         {
-
-            Console.WriteLine("List of recipes");
-
+            ConsoleColor prevColour = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nList of recipes");
+            Console.ForegroundColor = prevColour;
+            ConsoleColor prevColour1 = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             foreach (Recipe recipe in recipebook.GetRecipeList())
 
             {
 
                 Console.WriteLine(recipe.recipeName);
             }
-        
-            Console.WriteLine("\n Enter a recipe name to view ingredients");
+            Console.ForegroundColor = prevColour1;
+
+            Console.WriteLine("\nEnter a recipe name to view ingredients");
             string name = Console.ReadLine();
 
-        
- 
+
+            recipe = recipebook.GetRecipeByName(name);
             
-            if (recipebook.GetRecipeByName != null)
+            if (name != null )
             {
                 Console.WriteLine($"Recipe {name}");
+
                 Console.WriteLine("________________________________\nIngredients:\n________________________________");
                 foreach (var ingredient in recipe.Ingredients)
                 {
 
                     Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
                 }
+
 
                 Console.WriteLine("________________________________\nSteps:\n________________________________");
                 for (int i = 0; i < recipe.Steps.Count; i++)
@@ -198,7 +205,7 @@ namespace POE
                     totalCalories += ingredient.Calories;
                 }
 
-                Console.WriteLine($"Total calories: {totalCalories}");
+                Console.WriteLine($"\nTotal calories: {totalCalories}");
 
                 if (totalCalories > 300)
                 {
@@ -206,9 +213,12 @@ namespace POE
                 }
                 else
                 {
-                    Console.WriteLine("Recipe is healthy");
+                    Console.WriteLine("\nRecipe is healthy");
                 }
 
+            }else
+            {
+                Console.WriteLine($"Recipe with the name {name} not found!");
             }
 
             //ConsoleColor prevColor = Console.ForegroundColor;
@@ -251,16 +261,29 @@ namespace POE
         }
             public void Scaling()
             {
-                //    double factor;
+            Console.WriteLine("\nEnter a recipe name to scale the ingredients");
+            string name = Console.ReadLine();
 
-                //    Console.WriteLine("\nEnter the scale factor (0.5, 2, or 3): ");
-                //    factor = Convert.ToDouble(Console.ReadLine());
 
-                //    foreach (var ingredient in recipe.Ingredients)
-                //    {
-                //        ingredient.quantities *= factor;
-                //    }
+            recipe = recipebook.GetRecipeByName(name);
+
+            if (name != null)
+            {
+                double factor;
+
+                Console.WriteLine("\nEnter the scale factor (0.5, 2, or 3): ");
+                factor = Convert.ToDouble(Console.ReadLine());
+
+                foreach (var ingredient in recipe.Ingredients)
+                {
+                    ingredient.quantities *= factor;
                 }
+            }else
+            {
+                Console.WriteLine($"Recipe with the name {name} not found!");
+
+            }
+        }
 
                public void Reset()
                 {
