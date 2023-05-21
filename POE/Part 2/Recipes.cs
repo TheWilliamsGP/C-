@@ -4,10 +4,12 @@ using System.Numerics;
 using System.Xml.Linq;
 using POE;
 using static System.Formats.Asn1.AsnWriter;
+using static POE.Recipe;
 
 namespace POE
 
 {
+
     class Ingredient
     {
         public string recipename { get; set; }
@@ -28,6 +30,7 @@ namespace POE
             Calories = calories;
 
         }
+        
 
     }
     class Recipe
@@ -35,7 +38,7 @@ namespace POE
         public string recipeName { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public List<string> Steps { get; set; }
-       
+
 
 
         public Recipe(string recname)
@@ -46,16 +49,23 @@ namespace POE
 
 
         }
+
+        public delegate void Calorie(string text);
+
+        public static void caloiresExceeded(string text) => Console.WriteLine(text.ToUpper());
+        public static void caloiresEnough(string text) => Console.WriteLine(text.ToUpper());
+
+
     }
-        class recipeBook
+    class recipeBook
         {
-            private List<Recipe> recipes;
+            public List<Recipe> recipes;
         
             public recipeBook()
             {
             
             recipes = new List<Recipe>();
-            
+         
         }
 
             public void newRecipe(Recipe recipe)
@@ -110,12 +120,12 @@ namespace POE
 
             public void newRecipe()
             {
-
+           
                 Console.WriteLine("Enter the name of recipe:");
                 string recipeName = Console.ReadLine();
 
                 Recipe recipe = new Recipe(recipeName);
-
+            
                 // Prompt user for recipe details
                 Console.WriteLine("Enter the number of ingredients:");
 
@@ -168,10 +178,10 @@ namespace POE
             Console.ForegroundColor = prevColour;
             ConsoleColor prevColour1 = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
-            foreach (Recipe recipe in recipebook.GetRecipeList())
-
-            {
-
+            recipebook.GetRecipeList().Sort((s1, s2) => s1.recipeName.CompareTo(s2.recipeName));
+            foreach (var recipe in recipebook.GetRecipeList())
+                
+            {  
                 Console.WriteLine(recipe.recipeName);
             }
             Console.ForegroundColor = prevColour1;
@@ -209,14 +219,17 @@ namespace POE
 
                 if (totalCalories > 300)
                 {
-                    Console.WriteLine("Warning: The recipe exceeds 300 calories!");
+                    Calorie calorie = caloiresExceeded;
+                    calorie.Invoke("\nWarning: The recipe exceeds 300 calories!");
                 }
                 else
                 {
-                    Console.WriteLine("\nRecipe is healthy");
+                    Calorie calorie = caloiresEnough;
+                    calorie("\nRecipe is healthy");
                 }
 
-            }else
+            }
+            else
             {
                 Console.WriteLine($"Recipe with the name {name} not found!");
             }
@@ -278,7 +291,9 @@ namespace POE
                 {
                     ingredient.quantities *= factor;
                 }
-            }else
+                Console.WriteLine($"Recipe {name} scaled successfully!");
+            }
+            else
             {
                 Console.WriteLine($"Recipe with the name {name} not found!");
 
@@ -287,16 +302,42 @@ namespace POE
 
                public void Reset()
                 {
-            //    foreach (var ingredient in recipe.Ingredients)
-            //    {
+            Console.WriteLine("\nEnter a recipe name to scale the ingredients");
+            string name = Console.ReadLine();
 
-            //        ingredient.quantities = ingredient.Quantity;
-            //    }
+
+            recipe = recipebook.GetRecipeByName(name);
+
+            if (name != null)
+            {
+                foreach (var ingredient in recipe.Ingredients)
+                {
+
+                    ingredient.quantities = ingredient.Quantity;
+                }
+                Console.WriteLine("Recipe quantities reset successfully!");
+
+            }
+            else
+            {
+                Console.WriteLine($"Recipe with the name {name} not found!");
+
+            }
         }
         public void Clear()
             {
-
-                //recipe.Ingredients.Clear();
+            Console.WriteLine("Are you sure you want to clear all data? (Y/N)");
+            string ch = Console.ReadLine().ToUpper();
+            if (ch == "Y")
+            {
+                recipe.Ingredients.Clear();
+                Console.WriteLine("All data has been cleared.");
             }
+            else
+            {
+                Console.WriteLine("Operation cancelled.");
+            }
+            
+        }
         }
     }
