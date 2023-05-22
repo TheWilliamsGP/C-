@@ -4,8 +4,9 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="Part 2/Recipes.cs">
     <Files>
-      <File FileName="Part 2/Recipes.cs" Line="80" Column="39" />
-      <File FileName="Part 2/Program.cs" Line="76" Column="1" />
+      <File FileName="Part 2/Recipes.cs" Line="347" Column="1" />
+      <File FileName="Part 2/Program.cs" />
+      <File FileName="Part 1/Recipe.cs" Line="18" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,6 +21,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.calorieTest FirstBuild="True" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Part_2201 PreferredExecutionTarget="MonoDevelop.Default" />
