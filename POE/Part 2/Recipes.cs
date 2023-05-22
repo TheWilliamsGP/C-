@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Security.Cryptography;
 using System.Xml.Linq;
 using POE;
 using static System.Formats.Asn1.AsnWriter;
@@ -18,9 +19,10 @@ namespace POE
         public string units { get; set; }
         public double Quantity { get; set; }
         public int Calories { get; set; }
+        public int foodGroup { get; set; }
 
 
-        public Ingredient(string ingrediants, double quantity, string unit, int calories)
+        public Ingredient(string ingrediants, double quantity, string unit, int calories, int foodGrp)
         {
             //recipename = recname;
             ingrediant = ingrediants;
@@ -28,7 +30,7 @@ namespace POE
             units = unit;
             Quantity = quantity;
             Calories = calories;
-
+            foodGroup = foodGrp;
         }
 
 
@@ -139,8 +141,42 @@ namespace POE
                 Console.WriteLine($"Enter ingredient {i + 1} calories:");
                 int calories = Convert.ToInt32(Console.ReadLine());
 
+                Console.WriteLine($"Select food group for ingredient {i + 1} to be stored:" +
+                    "\n1. Starchy foods "+
+                    "\n2. Vegetables and fruits"+
+                    "\n3. Dry beans, peas, lentils and soya " +
+                    "\n4. Chicken, fish, meat and eggs" +
+                    "\n5. Milk and dairy products " +
+                    "\n6. Fats and oil" +
+                    "\n7. Water ");
+                int foodGrp = Convert.ToInt32(Console.ReadLine());
+                switch (foodGrp)
+                {
+                    case 1:Console.WriteLine($"Ingredient {ingrediants} was added to Starchy foods");
+                        break;
+                    case 2:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Vegetables and fruits");
+                        break;
+                    case 3:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Dry beans, peas, lentils and soya");
+                        break;
+                    case 4:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Chicken, fish, meat and eggs");
+                        break;
+                    case 5:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Milk and dairy products");
+                        break;
+                    case 6:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Fats and oil");
+                        break;
+                    case 7:
+                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Water");
+                        break;
+                
+            }
 
-                recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories));
+
+                recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories, foodGrp));
 
             }
             Console.WriteLine("Enter the number of steps:");
@@ -157,7 +193,7 @@ namespace POE
             }
 
             recipebook.newRecipe(recipe);
-            Console.WriteLine($"Recipe'{recipeName}' wass added");
+            Console.WriteLine($"Recipe {recipeName} wass added");
         }
 
         //Displays the recipe names and prompt the user to type a name to display the details of the recipe
@@ -344,8 +380,7 @@ namespace POE
             }
 
         }
-
+    
 
         }
     }
-}
