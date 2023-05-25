@@ -15,8 +15,10 @@ internal class Program
         int cl = 6;
 
         //declare an object in main or from outside the class
-        Recipes1 recipe = new Recipes1();
+        //Displays d = new Displays();
+        //addRecipe addRec = new addRecipe();
 
+        Recipes1 recipes = new Recipes1(); 
 
         Console.WriteLine("Welcome to the recipe book");
 
@@ -33,29 +35,28 @@ internal class Program
             {
                 case 1:
                     //adding a reipce
-                    recipe.newRecipe();
-                    
+                    recipes.newRecipe();
                     
                     break;
 
                 case 2:
                     //Calling the display method from recipe
-                    recipe.Display();
+                    recipes.Display();
                     break;
 
                 case 3:
                     //Calling the scaling method from recipe
-                    recipe.Scaling();
+                    recipes.Scaling();
                     break;
 
                 case 4:
                     //Calling the reset method from recipe
-                    recipe.Reset();
+                    recipes.Reset();
                     break;
 
                 case 5:
                     //Calling the clear method from recipe
-                    recipe.Clear();
+                    recipes.Clear();
                     break;
 
 
@@ -68,8 +69,3 @@ internal class Program
     }
 }
 
-//internal class Recipes
-//{
-//    public Recipes()
-//    {
-//    }

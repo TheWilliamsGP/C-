@@ -112,230 +112,218 @@ namespace POE
         // Prompt user for recipe details
         public void newRecipe()
         {
-
-            Console.WriteLine("Enter the name of recipe:");
-            string recipeName = Console.ReadLine();
-
-            Recipe recipe = new Recipe(recipeName);
-
-            
-            Console.WriteLine("Enter the number of ingredients:");
-
-            int numIngredients = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < numIngredients; i++)
+            try
             {
-                Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
-                String ingrediants = Console.ReadLine();
+                Console.WriteLine("Enter the name of recipe:");
+                string recipeName = Console.ReadLine();
+
+                Recipe recipe = new Recipe(recipeName);
 
 
+                Console.WriteLine("Enter the number of ingredients:");
 
-                Console.WriteLine("Enter the quantity of ingredient " + $"{i + 1}:");
-                double quantities = Convert.ToDouble(Console.ReadLine());
+                int numIngredients = Convert.ToInt32(Console.ReadLine());
 
-
-
-                Console.WriteLine("Enter the unit of measurement for ingredient " + $"{i + 1}:");
-                String units = Console.ReadLine();
-
-                Console.WriteLine($"Enter ingredient {i + 1} calories:");
-                int calories = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine($"Select food group for ingredient {i + 1} to be stored:" +
-                    "\n1. Starchy foods "+
-                    "\n2. Vegetables and fruits"+
-                    "\n3. Dry beans, peas, lentils and soya " +
-                    "\n4. Chicken, fish, meat and eggs" +
-                    "\n5. Milk and dairy products " +
-                    "\n6. Fats and oil" +
-                    "\n7. Water ");
-                int foodGrp = Convert.ToInt32(Console.ReadLine());
-                switch (foodGrp)
+                for (int i = 0; i < numIngredients; i++)
                 {
-                    case 1:Console.WriteLine($"Ingredient {ingrediants} was added to Starchy foods");
-                        break;
-                    case 2:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Vegetables and fruits");
-                        break;
-                    case 3:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Dry beans, peas, lentils and soya");
-                        break;
-                    case 4:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Chicken, fish, meat and eggs");
-                        break;
-                    case 5:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Milk and dairy products");
-                        break;
-                    case 6:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Fats and oil");
-                        break;
-                    case 7:
-                        Console.WriteLine($"Ingredient {ingrediants} was added to the food group Water");
-                        break;
-                
+                    Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
+                    String ingrediants = Console.ReadLine();
+
+
+
+                    Console.WriteLine("Enter the quantity of ingredient " + $"{ingrediants}:");
+                    double quantities = Convert.ToDouble(Console.ReadLine());
+
+
+
+                    Console.WriteLine("Enter the unit of measurement for ingredient " + $"{ingrediants}:");
+                    String units = Console.ReadLine();
+
+                    Console.WriteLine($"Enter the calories for ingredient {ingrediants} :");
+                    int calories = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine($"Select food group for ingredient {i + 1} to be stored:" +
+                        "\n1. Starchy foods " +
+                        "\n2. Vegetables and fruits" +
+                        "\n3. Dry beans, peas, lentils and soya " +
+                        "\n4. Chicken, fish, meat and eggs" +
+                        "\n5. Milk and dairy products " +
+                        "\n6. Fats and oil" +
+                        "\n7. Water ");
+                    int foodGrp = Convert.ToInt32(Console.ReadLine());
+                    switch (foodGrp)
+                    {
+                        case 1:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to Starchy foods");
+                            break;
+                        case 2:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Vegetables and fruits");
+                            break;
+                        case 3:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Dry beans, peas, lentils and soya");
+                            break;
+                        case 4:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Chicken, fish, meat and eggs");
+                            break;
+                        case 5:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Milk and dairy products");
+                            break;
+                        case 6:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Fats and oil");
+                            break;
+                        case 7:
+                            Console.WriteLine($"Ingredient {ingrediants} was added to the food group Water");
+                            break;
+
+                    }
+
+
+                    recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories, foodGrp));
+
+                }
+                Console.WriteLine("Enter the number of steps:");
+                int numSteps = Convert.ToInt32(Console.ReadLine());
+
+
+
+                for (int i = 0; i < numSteps; i++)
+                {
+                    Console.WriteLine("Enter the description of step " + $"{i + 1}:");
+                    string steps = Console.ReadLine();
+                    recipe.Steps.Add(steps);
+
+                }
+
+                recipebook.newRecipe(recipe);
+                Console.WriteLine($"Recipe {recipeName} wass added");
             }
-
-
-                recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories, foodGrp));
-
-            }
-            Console.WriteLine("Enter the number of steps:");
-            int numSteps = Convert.ToInt32(Console.ReadLine());
-
-
-
-            for (int i = 0; i < numSteps; i++)
+            catch (Exception e)
             {
-                Console.WriteLine("Enter the description of step " + $"{i + 1}:");
-                string steps = Console.ReadLine();
-                recipe.Steps.Add(steps);
-
+                Console.WriteLine("Invalid Option try again");
             }
-
-            recipebook.newRecipe(recipe);
-            Console.WriteLine($"Recipe {recipeName} wass added");
         }
 
         //Displays the recipe names and prompt the user to type a name to display the details of the recipe
         public void Display()
         {
-            ConsoleColor prevColour = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nList of recipes");
-            Console.ForegroundColor = prevColour;
-            ConsoleColor prevColour1 = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            recipebook.GetRecipeList().Sort((s1, s2) => s1.recipeName.CompareTo(s2.recipeName));
-            foreach (var recipe in recipebook.GetRecipeList())
-
+            try
             {
-                Console.WriteLine(recipe.recipeName);
-            }
-            Console.ForegroundColor = prevColour1;
+                ConsoleColor prevColour = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nList of recipes");
+                Console.ForegroundColor = prevColour;
+                ConsoleColor prevColour1 = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                recipebook.GetRecipeList().Sort((s1, s2) => s1.recipeName.CompareTo(s2.recipeName));
+                foreach (var recipe in recipebook.GetRecipeList())
 
-            Console.WriteLine("\nEnter a recipe name to view ingredients");
-            string name = Console.ReadLine();
-
-
-            recipe = recipebook.GetRecipeByName(name);
-
-            if (name != null)
-            {
-                Console.WriteLine($"Recipe {name}");
-
-                Console.WriteLine("________________________________\nIngredients:\n________________________________");
-                foreach (var ingredient in recipe.Ingredients)
                 {
-
-                    Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
+                    Console.WriteLine(recipe.recipeName);
                 }
+                Console.ForegroundColor = prevColour1;
+
+                Console.WriteLine("\nEnter a recipe name to view ingredients");
+                string name = Console.ReadLine();
 
 
-                Console.WriteLine("________________________________\nSteps:\n________________________________");
-                for (int i = 0; i < recipe.Steps.Count; i++)
+                recipe = recipebook.GetRecipeByName(name);
+
+                if (name != null)
                 {
-                    Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
+                    Console.WriteLine($"\nRecipe {name}");
+
+                    Console.WriteLine("________________________________\nIngredients:\n________________________________");
+                    foreach (var ingredient in recipe.Ingredients)
+                    {
+
+                        Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
+                    }
+
+
+                    Console.WriteLine("________________________________\nSteps:\n________________________________");
+                    for (int i = 0; i < recipe.Steps.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
+                    }
+                    calorieCalculators cc = new calorieCalculators();
+                    cc.calorieCalculator();
+
                 }
-
-                calorieCalculator();
-
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine($"Recipe with the name {name} not found!");
+                Console.WriteLine("Recipe not found please try again");
             }
 
-            //ConsoleColor prevColor = Console.ForegroundColor;
-            //Console.ForegroundColor = ConsoleColor.Yellow;
 
-            //foreach (var ingredient in rec.Ingredients)
-            //{
-            //    Console.WriteLine("Recipe Name: " + $"{ingredient.recipename}");
-            //}
-            //Console.ForegroundColor = prevColor;
-
-            //Console.WriteLine("________________________________\nIngredients:\n________________________________");
-            //foreach (var ingredient in recipe.Ingredients)
-            //{
-
-            //    Console.WriteLine($"{ingredient.quantities} {ingredient.units} of {ingredient.ingrediant},\n{ingredient.Calories} calories");
-            //}
-
-            //Console.WriteLine("________________________________\nSteps:\n________________________________");
-            //for (int i = 0; i < recipe.Steps.Count; i++)
-            //{
-            //    Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
-            //}
-
-            //int totalCalories = 0;
-            //foreach (var ingredient in recipe.Ingredients)
-            //    {
-            //    totalCalories += ingredient.Calories;
-            //    }
-
-            //Console.WriteLine($"Total calories: {totalCalories}");
-
-            //if (totalCalories > 300)
-            //{
-            //    Console.WriteLine("Warning: The recipe exceeds 300 calories!");
-            //}else
-            //{
-            //    Console.WriteLine("Recipe is healthy");
-            //}
         }
 
         // method to half double or triple a recipe 
         public void Scaling()
         {
-            Console.WriteLine("\nEnter a recipe name to scale the ingredients");
-            string name = Console.ReadLine();
-
-
-            recipe = recipebook.GetRecipeByName(name);
-
-            if (name != null)
+            try
             {
-                double factor;
+                Console.WriteLine("\nEnter a recipe name to scale the ingredients");
+                string name = Console.ReadLine();
 
-                Console.WriteLine("\nEnter the scale factor (0.5, 2, or 3): ");
-                factor = Convert.ToDouble(Console.ReadLine());
 
-                foreach (var ingredient in recipe.Ingredients)
+                recipe = recipebook.GetRecipeByName(name);
+
+                if (name != null)
                 {
-                    ingredient.quantities *= factor;
-                }
-                Console.WriteLine($"Recipe {name} scaled successfully!");
-            }
-            else
-            {
-                Console.WriteLine($"Recipe with the name {name} not found!");
+                    double factor;
 
+                    Console.WriteLine("\nEnter the scale factor (0.5, 2, or 3): ");
+                    factor = Convert.ToDouble(Console.ReadLine());
+
+                    foreach (var ingredient in recipe.Ingredients)
+                    {
+                        ingredient.quantities *= factor;
+                    }
+                    Console.WriteLine($"Recipe {name} scaled successfully!");
+                }
+                else
+                {
+                    Console.WriteLine($"Recipe with the name {name} not found!");
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Recipe not found please try again");
             }
         }
 
         //Method to reset the recipe that is chosen
         public void Reset()
         {
-            Console.WriteLine("\nEnter a recipe name to scale the ingredients");
-            string name = Console.ReadLine();
-
-
-            recipe = recipebook.GetRecipeByName(name);
-
-            if (name != null)
+            try
             {
-                foreach (var ingredient in recipe.Ingredients)
+                Console.WriteLine("\nEnter a recipe name to scale the ingredients");
+                string name = Console.ReadLine();
+
+
+                recipe = recipebook.GetRecipeByName(name);
+
+                if (name != null)
                 {
+                    foreach (var ingredient in recipe.Ingredients)
+                    {
 
-                    ingredient.quantities = ingredient.Quantity;
+                        ingredient.quantities = ingredient.Quantity;
+                    }
+                    Console.WriteLine("Recipe quantities reset successfully!");
+
                 }
-                Console.WriteLine("Recipe quantities reset successfully!");
+                else
+                {
+                    Console.WriteLine($"Recipe with the name {name} not found!");
 
+                }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine($"Recipe with the name {name} not found!");
-
+                Console.WriteLine("Recipe not found please try again");
             }
         }
 
@@ -356,31 +344,7 @@ namespace POE
 
         }
 
-        // Calculated if the calories are above the limit
-        public void calorieCalculator()
-        {
-            Recipe recipe = new Recipe(recname);
-            int totalCalories = 0;
-            foreach (var ingredient in recipe.Ingredients)
-            {
-                totalCalories += ingredient.Calories;
-            }
+       
 
-            Console.WriteLine($"\nTotal calories: {totalCalories}");
-
-            if (totalCalories > 300)
-            {
-                Calorie calorie = caloiresExceeded;
-                calorie.Invoke("\nWarning: The recipe exceeds 300 calories!");
-            }
-            else
-            {
-                Calorie calorie = caloiresEnough;
-                calorie("\nRecipe is healthy");
-            }
-
-        }
-    
-
-        }
     }
+}
