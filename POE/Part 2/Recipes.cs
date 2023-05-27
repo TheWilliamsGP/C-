@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Xml.Linq;
 using POE;
 using static System.Formats.Asn1.AsnWriter;
+using static POE.Delegate_Calories;
 using static POE.Recipe;
 
 namespace POE
@@ -24,13 +25,13 @@ namespace POE
 
         public Ingredient(string ingrediants, double quantity, string unit, int calories, int foodGrp)
         {
-            //recipename = recname;
-            ingrediant = ingrediants;
-            quantities = quantity;
-            units = unit;
-            Quantity = quantity;
-            Calories = calories;
-            foodGroup = foodGrp;
+          
+            this.ingrediant = ingrediants;
+            this.quantities = quantity;
+            this.units = unit;
+            this.Quantity = quantity;
+            this.Calories = calories;
+            this.foodGroup = foodGrp;
         }
 
 
@@ -43,7 +44,7 @@ namespace POE
 
 
 
-        public Recipe(string recname)
+        public  Recipe(string recname)
         {
             recipeName = recname;
             Ingredients = new List<Ingredient>();
@@ -52,10 +53,7 @@ namespace POE
 
         }
 
-        public delegate void Calorie(string text);
 
-        public static void caloiresExceeded(string text) => Console.WriteLine(text.ToUpper());
-        public static void caloiresEnough(string text) => Console.WriteLine(text.ToUpper());
 
 
     }
@@ -67,12 +65,13 @@ namespace POE
         {
 
             recipes = new List<Recipe>();
-
+            
         }
 
         public void newRecipe(Recipe recipe)
         {
             recipes.Add(recipe);
+            recipes.Sort();
         }
 
         public void RemoveRecipe(Recipe recipe)
@@ -100,24 +99,28 @@ namespace POE
         }
     }
 
+   
 
 
-    internal class Recipes1
+    public class Recipes1
     {
-
+        
         private recipeBook recipebook = new recipeBook();
         Recipe recipe = new Recipe(recname);
-        private static string recname;
-
+        public static string recname;
+        // Delegate_Calories DC = new Delegate_Calories();
+        delegate_calories obj = new delegate_calories();
         // Prompt user for recipe details
         public void newRecipe()
         {
             try
             {
+               
+
                 Console.WriteLine("Enter the name of recipe:");
                 string recipeName = Console.ReadLine();
 
-                Recipe recipe = new Recipe(recipeName);
+                Recipe recipe = new Recipe(recipeName.ToLower());
 
 
                 Console.WriteLine("Enter the number of ingredients:");
@@ -179,7 +182,7 @@ namespace POE
 
 
                     recipe.Ingredients.Add(new Ingredient(ingrediants, quantities, units, calories, foodGrp));
-
+                    
                 }
                 Console.WriteLine("Enter the number of steps:");
                 int numSteps = Convert.ToInt32(Console.ReadLine());
@@ -223,7 +226,7 @@ namespace POE
                 Console.ForegroundColor = prevColour1;
 
                 Console.WriteLine("\nEnter a recipe name to view ingredients");
-                string name = Console.ReadLine();
+                string name = Console.ReadLine().ToLower();
 
 
                 recipe = recipebook.GetRecipeByName(name);
@@ -245,9 +248,9 @@ namespace POE
                     {
                         Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
                     }
-                    calorieCalculators cc = new calorieCalculators();
-                    cc.calorieCalculator();
 
+                    Calorie calulate = obj.calorieCalculator;
+                    calulate();
                 }
             }
             catch (Exception e)
@@ -257,6 +260,7 @@ namespace POE
 
 
         }
+        
 
         // method to half double or triple a recipe 
         public void Scaling()
@@ -343,8 +347,60 @@ namespace POE
             }
 
         }
-
        
+
+    }
+    class Delegate_Calories
+    {
+        public delegate void Calorie();
+
+        public class delegate_calories
+        {
+
+            private recipeBook recipebook = new recipeBook();
+            Recipe recipe = new Recipe(recname);
+            public static string recname;
+
+            public static void error_display()
+            {
+                Console.WriteLine("\nWarning: The recipe exceeds 300 calories!");
+
+            }
+            public static void caloriesHealthy()
+            {
+                Console.WriteLine("\nRecipe is healthy");
+            }
+            public void calorieCalculator()
+
+            {
+
+                int totalCalories = 0;
+                foreach (var ingredient in recipe.Ingredients)
+                {
+                    totalCalories += ingredient.Calories;
+
+                }
+                Console.WriteLine($"\nTotal calories: {totalCalories}");
+
+
+                if (totalCalories > 300)
+                {
+
+                    Calorie ED = delegate_calories.error_display;
+                    ED();
+                }
+                else
+                {
+                    Calorie CH = delegate_calories.caloriesHealthy;
+                    CH();
+
+                }
+
+            }
+
+
+        }
+
 
     }
 }

@@ -1,17 +1,20 @@
 ﻿<Properties StartupConfiguration="{667819E5-1110-4E70-B897-74AEACBA4FF5}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Part_2201 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Part_2202 PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Part 2/calorieCalculators.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Part_2201 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.calorieTest FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Part 2/Recipes.cs">
     <Files>
-      <File FileName="Part 2/Recipes.cs" Line="247" Column="22" />
-      <File FileName="Part 2/Program.cs" Line="72" Column="1" />
-      <File FileName="calorieTest/CaloriesTest1.cs" />
-      <File FileName="Part 2/calorieCalculators.cs" Line="11" Column="5" />
+      <File FileName="Part 2/Recipes.cs" Line="213" Column="13" />
+      <File FileName="Part 2/Program.cs" />
+      <File FileName="Part 2/calorieCalculators.cs" Line="47" Column="14" />
+      <File FileName="calorieTest/CaloriesTest1.cs" Line="13" Column="11" />
+      <File FileName="Part 1/Recipe.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,13 +23,11 @@
             <Node name="calorieTest" expanded="True" />
             <Node name="Part 1" expanded="True" />
             <Node name="Part 2" expanded="True">
-              <Node name="calorieCalculators.cs" selected="True" />
+              <Node name="Recipes.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.calorieTest FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.Part_2202 PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

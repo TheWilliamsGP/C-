@@ -3,7 +3,7 @@ namespace calorieTest;
 
 public class CaloriesTest1
 {
-    private Recipe _calorieCalculator { get; set; } = null!;
+    public Recipe _calorieCalculator { get; set; } = null!;
     [SetUp]
     public void Setup()
     {

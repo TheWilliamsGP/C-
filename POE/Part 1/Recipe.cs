@@ -1,5 +1,5 @@
 ﻿using System;
-namespace POE
+namespace part_1
 {
     public class Recipe
     {

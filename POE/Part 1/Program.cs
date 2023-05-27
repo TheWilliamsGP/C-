@@ -1,5 +1,6 @@
-﻿using POE;
+﻿
 using System;
+namespace part_1;
 internal class Program
 {
     //Calling the main method

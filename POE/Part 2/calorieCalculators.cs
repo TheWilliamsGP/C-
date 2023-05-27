@@ -1,42 +1,72 @@
 ﻿using System;
 using POE;
 using static POE.Recipe;
+using static POE.Recipes;
+using System.Linq;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Security.Cryptography;
 
 namespace POE
 {
-	public class calorieCalculators
-	{
+    public class calorieCalculators
+    {
 
-		public calorieCalculators()
-		{}
-        private recipeBook recipebook = new recipeBook();
+        // private recipeBook recipebook = new recipeBook();
         Recipe recipe = new Recipe(recname);
-        private static string recname;
-
-        // Calculated if the calories are above the limit
-        public void calorieCalculator()
+        public static string recname;
+        int totalCalories;
+        class Delegate_Calories
         {
-            Recipe recipe = new Recipe(recname);
-            int totalCalories = 0;
-            foreach (var ingredient in recipe.Ingredients)
+            public delegate void Calorie();
+
+            public class delegate_calories
             {
-                totalCalories += ingredient.Calories;
+
+                private recipeBook recipebook = new recipeBook();
+                Recipe recipe = new Recipe(recname);
+                public static string recname;
+
+                public static void error_display()
+                {
+                    Console.WriteLine("\nWarning: The recipe exceeds 300 calories!");
+
+                }
+                public static void caloriesHealthy()
+                {
+                    Console.WriteLine("\nRecipe is healthy");
+                }
+                public void calorieCalculator()
+
+                {
+
+                    int totalCalories = 0;
+                    foreach (var ingredient in recipe.Ingredients)
+                    {
+                        totalCalories += ingredient.Calories;
+
+                    }
+                    Console.WriteLine($"\nTotal calories: {totalCalories}");
+
+
+                    if (totalCalories > 300)
+                    {
+                        Calorie ED = delegate_calories.error_display;
+                        ED();
+                    }
+                    else
+                    {
+                        Calorie CH = delegate_calories.caloriesHealthy;
+                        CH();
+
+                    }
+
+                }
+
+
             }
 
-            Console.WriteLine($"\nTotal calories: {totalCalories}");
-
-            if (totalCalories > 300)
-            {
-                Calorie calorie = caloiresExceeded;
-                calorie.Invoke("\nWarning: The recipe exceeds 300 calories!");
-            }
-            else
-            {
-                Calorie calorie = caloiresEnough;
-                calorie("\nRecipe is healthy");
-            }
 
         }
     }
 }
-
