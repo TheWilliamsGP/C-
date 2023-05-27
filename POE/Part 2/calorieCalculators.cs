@@ -8,14 +8,14 @@ using System.Numerics;
 using System.Security.Cryptography;
 
 namespace POE
+
 {
+
     public class calorieCalculators
     {
 
         // private recipeBook recipebook = new recipeBook();
-        Recipe recipe = new Recipe(recname);
-        public static string recname;
-        int totalCalories;
+
         class Delegate_Calories
         {
             public delegate void Calorie();
@@ -36,8 +36,17 @@ namespace POE
                 {
                     Console.WriteLine("\nRecipe is healthy");
                 }
-                public void calorieCalculator()
 
+
+            }
+            Recipe recipe = new Recipe(recname);
+            public static string recname;
+            int totalCalories;
+
+            public void calorieCalculator()
+
+            {
+                try
                 {
 
                     int totalCalories = 0;
@@ -60,13 +69,16 @@ namespace POE
                         CH();
 
                     }
-
+                }
+                catch
+                {
+                    Console.WriteLine("The input was invalid please try again");
                 }
 
 
+
+
             }
-
-
         }
     }
 }

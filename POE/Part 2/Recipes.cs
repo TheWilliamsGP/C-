@@ -11,7 +11,7 @@ using static POE.Recipe;
 namespace POE
 
 {
-
+    // class to store all the getters and setters for the ingredient details
     class Ingredient
     {
         public string recipename { get; set; }
@@ -36,6 +36,7 @@ namespace POE
 
 
     }
+    // class to create list of ingredients, steps and recipe name
     class Recipe
     {
         public string recipeName { get; set; }
@@ -57,6 +58,7 @@ namespace POE
 
 
     }
+    // Class to create a new list thats stores all the ingredients under a specific name typed by the user
     class recipeBook
     {
         public List<Recipe> recipes;
@@ -99,6 +101,7 @@ namespace POE
         }
     }
 
+    //Delegate class to display warning or healthy message after calories are calculated 
     class Delegate_Calories
     {
         public delegate void Calorie();
@@ -289,7 +292,6 @@ namespace POE
                 Console.WriteLine("\nEnter a recipe name to scale the ingredients");
                 string name = Console.ReadLine();
 
-
                 recipe = recipebook.GetRecipeByName(name);
 
                 if (name != null)
@@ -366,10 +368,10 @@ namespace POE
             }
 
         }
+        //Calculates the total amount of calories
         public void calorieCalculator()
 
         {
-
             int totalCalories = 0;
 
             foreach (var ingredient in recipe.Ingredients)
@@ -380,6 +382,7 @@ namespace POE
 
             Console.WriteLine($"\nTotal calories: {totalCalories}");
 
+            //if the calories is more than 300 then a error messages will display
 
             if (totalCalories > 300)
             {
