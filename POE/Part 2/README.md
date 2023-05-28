@@ -134,8 +134,10 @@ internal class Program
 
  The screenshot shows the updated display() method in the terminal  
 
-![Display output](https://drive.google.com/uc?id=1knJG8yP6waJ-QmIx5S3R8mP_STt1tLg8)
+![Display output](https://drive.google.com/uc?id=1U56ScOsjnNYx9c-Q5-3rhSopEURprsN6)
 
 Repository History
-![Repo Hisory](https://drive.google.com/uc?id=1ZAeZQgMm4f1WzTALdRfGro4cQ8g8dXz2)
+![Repo Hisory](https://drive.google.com/uc?id=1ui_jSAfB1Hm-dfRdk9BuYE33R8Usk2Nw)
+
+
 
