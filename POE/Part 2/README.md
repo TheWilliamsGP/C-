@@ -11,7 +11,17 @@ Use Visual Studio to run the code found on [Github](https://github.com/TheWillia
 
 ## Version 2.0
 
-With the version 2.0 the user is asked to select a food group the ingredint blomgs to and each food group has a description on what benifits it has and some has examples of the type of ingreidient
+FOOD GROUPS
+ The user is asked to select a food group the ingredint blomgs to and each food group has a description on what benifits it has and some has examples of the type of ingreidient that belong to the food group.
+
+CALORIES
+The user is required to enter the amount of calories each ingredient has which will be stored in a list.
+
+Calorie Calulator
+The calories that was stored in the list will be calculated and to find the total amount and with the use of delegates the user will be notified if the total amount of calories exceed 300.
+
+Patch notes
+exceptions was added if the user enters invalid options and take the user back to the main method.
 
 ## Description
 
@@ -122,7 +132,7 @@ internal class Program
 
 ## Screenshots
 
- The screenshot shows the finished display() method in the terminal  
+ The screenshot shows the updated display() method in the terminal  
 
 ![Display output](https://drive.google.com/uc?id=1knJG8yP6waJ-QmIx5S3R8mP_STt1tLg8)
 
