@@ -133,8 +133,7 @@ internal class Program
 ## Screenshots
 
  The screenshot shows the updated display() method in the terminal  
-
-![Display output](https://drive.google.com/uc?id=11U56ScOsjnNYx9c)
+![Display output](https://drive.google.com/uc?id=1ui_jSAfB1Hm-dfRdk9BuYE33R8Usk2Nw)
 
 Repository History
 ![Repo Hisory](https://drive.google.com/uc?id=1ZAeZQgMm4f1WzTALdRfGro4cQ8g8dXz2)
