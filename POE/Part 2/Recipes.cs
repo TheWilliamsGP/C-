@@ -111,12 +111,17 @@ namespace POE
 
             public static void error_display()
             {
+                ConsoleColor prevColour = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nWarning: The recipe exceeds 300 calories!");
-
+                Console.ForegroundColor = prevColour;
             }
             public static void caloriesHealthy()
             {
+                ConsoleColor prevColour = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\nRecipe is healthy");
+                Console.ForegroundColor = prevColour;
             }
 
 
@@ -168,14 +173,14 @@ namespace POE
                     Console.WriteLine($"Enter the calories for ingredient {ingrediants} :");
                     int calories = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine($"Select food group for ingredient {i + 1} to be stored:" +
-                        "\n1. Starchy foods " +
-                        "\n2. Vegetables and fruits" +
-                        "\n3. Dry beans, peas, lentils and soya " +
-                        "\n4. Chicken, fish, meat and eggs" +
-                        "\n5. Milk and dairy products " +
-                        "\n6. Fats and oil" +
-                        "\n7. Water ");
+                    Console.WriteLine($"\nSelect food group for ingredient {i + 1} to be stored:" +
+                        "\n\n1. Starchy foods \nWhich is the main source of carbohydrates eg. Brown rice, potatoes, pasta etc " +
+                        "\n\n2. Vegetables and fruits \nConatins lots of vitamins and help with digestion eg apples, pears, peaches etc" +
+                        "\n\n3. Dry beans, peas, lentils and soya \nAre good soruce of fibre and is a a substitue for meat and chicken eg chickpeas, kidney beans etc" +
+                        "\n\n4. Chicken, fish, meat and eggs \nAre good protien to add to diets packed with vatimins and minerals" +
+                        "\n\n5. Milk and dairy products \nWhich contains alot of calcium to keoe bones heakthy and strong " +
+                        "\n\n6. Fats and oil are fats and \nSome fats are healthier than others eg olive oils nuts and seeds " +
+                        "\n\n7. Water to keep your body hydrated");
                     int foodGrp = Convert.ToInt32(Console.ReadLine());
                     switch (foodGrp)
                     {
@@ -235,7 +240,7 @@ namespace POE
             try
             {
                 ConsoleColor prevColour = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\nList of recipes");
                 Console.ForegroundColor = prevColour;
                 ConsoleColor prevColour1 = Console.ForegroundColor;
