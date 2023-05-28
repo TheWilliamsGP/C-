@@ -10,9 +10,9 @@
   <MonoDevelop.Ide.ItemProperties.calorieTest FirstBuild="True" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Part 2/Recipes.cs">
     <Files>
-      <File FileName="Part 2/Recipes.cs" Line="206" Column="1" />
-      <File FileName="Part 2/Program.cs" Line="1" Column="1" />
-      <File FileName="Part 2/calorieCalculators.cs" Line="48" Column="14" />
+      <File FileName="Part 2/Recipes.cs" Line="177" Column="28" />
+      <File FileName="Part 2/Program.cs" Line="32" Column="1" />
+      <File FileName="Part 2/calorieCalculators.cs" />
       <File FileName="calorieTest/CaloriesTest1.cs" />
       <File FileName="Part 1/Recipe.cs" />
     </Files>
@@ -22,9 +22,7 @@
           <Node name="POE" expanded="True">
             <Node name="calorieTest" expanded="True" />
             <Node name="Part 1" expanded="True" />
-            <Node name="Part 2" expanded="True">
-              <Node name="Recipes.cs" selected="True" />
-            </Node>
+            <Node name="Part 2" expanded="True" />
           </Node>
         </State>
       </Pad>
