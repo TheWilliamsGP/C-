@@ -1,7 +1,6 @@
 ﻿using System;
 using POE;
 using static POE.Recipe;
-using static POE.Recipes;
 using System.Linq;
 using System.Collections.Generic;
 using System.Numerics;

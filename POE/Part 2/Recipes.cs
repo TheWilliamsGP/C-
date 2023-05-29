@@ -65,9 +65,7 @@ namespace POE
 
         public recipeBook()
         {
-
             recipes = new List<Recipe>();
-
         }
 
         public void newRecipe(Recipe recipe)
@@ -76,19 +74,12 @@ namespace POE
             recipes.Sort();
         }
 
-        public void RemoveRecipe(Recipe recipe)
+        public List<Recipe> fullRecipeList()
         {
-            recipes.Remove(recipe);
-        }
-
-        public List<Recipe> GetRecipeList()
-        {
-
             return recipes;
-
         }
 
-        public Recipe GetRecipeByName(string recname)
+        public Recipe getRecipeName(string recname)
         {
             foreach (Recipe recipe in recipes)
             {
@@ -136,9 +127,9 @@ namespace POE
         private recipeBook recipebook = new recipeBook();
         Recipe recipe = new Recipe(recname);
         public static string recname;
-        // Delegate_Calories DC = new Delegate_Calories();
         delegate_calories obj = new delegate_calories();
-        // Prompt user for recipe details
+
+        // Prompt user to store recipe details
         public void newRecipe()
         {
             try
@@ -245,8 +236,8 @@ namespace POE
                 Console.ForegroundColor = prevColour;
                 ConsoleColor prevColour1 = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                recipebook.GetRecipeList().Sort((s1, s2) => s1.recipeName.CompareTo(s2.recipeName));
-                foreach (var recipe in recipebook.GetRecipeList())
+                recipebook.fullRecipeList().Sort((s1, s2) => s1.recipeName.CompareTo(s2.recipeName));
+                foreach (var recipe in recipebook.fullRecipeList())
 
                 {
                     Console.WriteLine(recipe.recipeName);
@@ -257,7 +248,7 @@ namespace POE
                 string name = Console.ReadLine().ToLower();
 
 
-                recipe = recipebook.GetRecipeByName(name);
+                recipe = recipebook.getRecipeName(name);
 
                 if (name != null)
                 {
@@ -289,7 +280,7 @@ namespace POE
         }
 
 
-        // method to half double or triple a recipe 
+        // method to half, double or triple a recipe 
         public void Scaling()
         {
             try
@@ -297,7 +288,7 @@ namespace POE
                 Console.WriteLine("\nEnter a recipe name to scale the ingredients");
                 string name = Console.ReadLine();
 
-                recipe = recipebook.GetRecipeByName(name);
+                recipe = recipebook.getRecipeName(name);
 
                 if (name != null)
                 {
@@ -333,7 +324,7 @@ namespace POE
                 string name = Console.ReadLine();
 
 
-                recipe = recipebook.GetRecipeByName(name);
+                recipe = recipebook.getRecipeName(name);
 
                 if (name != null)
                 {
