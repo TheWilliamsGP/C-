@@ -12,60 +12,73 @@ internal class Program
     private static void Main(string[] args)
     {
 
-        int cl = 6;
+        int cl = 0;
 
-        //declare an object in main or from outside the class
-        //Displays d = new Displays();
-        //addRecipe addRec = new addRecipe();
+        Recipes1 recipes = new Recipes1();
 
-        Recipes1 recipes = new Recipes1(); 
-
-        Console.WriteLine("Welcome to the recipe book");
+  
+            Console.WriteLine("Welcome to the recipe book");
 
         // Do while loop to run until the user selcets the number to quit
-        do
+        while (cl != 6) 
         {
-
-            // Switch case to promp the user to select what to do from the list 
-            Console.WriteLine("\nPress \n1. to Add a new recipe \n2. to display the recipe \n3. to Scale the recipe \n4. to reset the recipe \n5. to clear all data \n6. to exit");
-            cl = Convert.ToInt32(Console.ReadLine());
-
-
-            switch (cl)
+            try
             {
-                case 1:
-                    //adding a reipce
-                    recipes.newRecipe();
-                    
-                    break;
 
-                case 2:
-                    //Calling the display method from recipe
-                    recipes.Display();
-                    break;
-
-                case 3:
-                    //Calling the scaling method from recipe
-                    recipes.Scaling();
-                    break;
-
-                case 4:
-                    //Calling the reset method from recipe
-                    recipes.Reset();
-                    break;
-
-                case 5:
-                    //Calling the clear method from recipe
-                    recipes.Clear();
-                    break;
+                // Switch case to promp the user to select what to do from the list 
+                Console.WriteLine("\nPress \n1. to Add a new recipe \n2. to display the recipe \n3. to Scale the recipe \n4. to reset the recipe \n5. to clear all data \n6. to exit");
+                cl = Convert.ToInt32(Console.ReadLine());
 
 
-                case 6:
-                    Console.WriteLine("Thank You");
-                    break;
+                switch (cl)
+                {
+                    case 1:
+                        //adding a reipce
+                        recipes.newRecipe();
+                        break;
+
+                    case 2:
+                        //Calling the display method from recipe
+                        recipes.Display();
+                        break;
+
+                    case 3:
+                        //Calling the scaling method from recipe
+                        recipes.Scaling();
+                        break;
+
+                    case 4:
+                        //Calling the reset method from recipe
+                        recipes.Reset();
+                        break;
+
+                    case 5:
+                        //Calling the clear method from recipe
+                        recipes.Clear();
+                        break;
+
+
+                    case 6:
+                        Console.WriteLine("Thank You");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invaild");
+                        break;
+                }
+            }
+            catch( Exception e)
+            {
+                Console.WriteLine(e.Message);
+
             }
 
-        } while (cl != 6);
+            
+        } 
+
+        }
+        
     }
-}
+
+
 

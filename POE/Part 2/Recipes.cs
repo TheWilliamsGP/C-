@@ -53,20 +53,11 @@ namespace POE
 
 
         }
-
-
-
-
     }
     // Class to create a new list thats stores all the ingredients under a specific name typed by the user
     class recipeBook
     {
-        public List<Recipe> recipes;
-
-        public recipeBook()
-        {
-            recipes = new List<Recipe>();
-        }
+        public List<Recipe> recipes = new List<Recipe>();
 
         public void newRecipe(Recipe recipe)
         {
@@ -120,7 +111,7 @@ namespace POE
 
     }
 
-
+    //class to store all the methods that execute the program
     public class Recipes1
     {
 
@@ -151,12 +142,8 @@ namespace POE
                     Console.WriteLine("Enter the name of ingredient " + $"{i + 1} :");
                     String ingrediants = Console.ReadLine();
 
-
-
                     Console.WriteLine("Enter the quantity of ingredient " + $"{ingrediants}:");
                     double quantities = Convert.ToDouble(Console.ReadLine());
-
-
 
                     Console.WriteLine("Enter the unit of measurement for ingredient " + $"{ingrediants}:");
                     String units = Console.ReadLine();
@@ -268,6 +255,7 @@ namespace POE
                         Console.WriteLine($"{i + 1}. {recipe.Steps[i]}");
                     }
 
+                    //method called to display the total calories
                     calorieCalculator();
                 }
             }
@@ -276,9 +264,7 @@ namespace POE
                 Console.WriteLine("Recipe not found please try again");
             }
 
-
         }
-
 
         // method to half, double or triple a recipe 
         public void Scaling()
@@ -356,6 +342,7 @@ namespace POE
             if (ch == "Y")
             {
                 recipe.Ingredients.Clear();
+               
                 Console.WriteLine("All data has been cleared.");
             }
             else
