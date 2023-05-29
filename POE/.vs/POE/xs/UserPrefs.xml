@@ -1,13 +1,17 @@
 ﻿<Properties StartupConfiguration="{667819E5-1110-4E70-B897-74AEACBA4FF5}|Default">
+  <MonoDevelop.Ide.ItemProperties.Part_2202 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Part_2201 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="Part 2/Recipes.cs">
     <Files>
-      <File FileName="Part 2/Recipes.cs" Line="284" Column="30" />
-      <File FileName="Part 2/Program.cs" />
-      <File FileName="Part 2/calorieCalculators.cs" Line="12" Column="1" />
+      <File FileName="Part 2/Recipes.cs" Line="1" Column="14" />
+      <File FileName="Part 2/Program.cs" Line="71" Column="54" />
+      <File FileName="Part 2/calorieCalculators.cs" />
       <File FileName="Part 1/Recipe.cs" />
       <File FileName="Part 1/Program.cs" />
     </Files>
@@ -21,8 +25,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Part_2201 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.ItemProperties.Part_2202 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
