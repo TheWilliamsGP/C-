@@ -24,6 +24,8 @@ internal class Program
         {
             try
             {
+                ConsoleColor prevColour = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Blue;
 
                 // Switch case to promp the user to select what to do from the list 
                 Console.WriteLine("\nPress \n1. to Add a new recipe \n2. to display the recipe \n3. to Scale the recipe \n4. to reset the recipe \n5. to clear all data \n6. to exit");
@@ -66,11 +68,14 @@ internal class Program
                         Console.WriteLine("Invaild");
                         break;
                 }
+                Console.ForegroundColor = prevColour;
             }
             catch( Exception e)
             {
+                ConsoleColor prevColour = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(e.Message);
-
+                Console.ForegroundColor = prevColour;
             }
 
             
