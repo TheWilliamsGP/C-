@@ -27,11 +27,5 @@ minimum requirements to run this application is core i3 but would run slow, it i
 
 
 Repository History
-![Repo Hisory](https://drive.google.com/uc?id=1ui_jSAfB1Hm-dfRdk9BuYE33R8Usk2Nw)
 
 ![Repo Hisory](https://drive.google.com/uc?id=1wV70qnfwaAY9g0NbtvfNSokXHUSsrpgZ)
-
-https://drive.google.com/file/d/1wV70qnfwaAY9g0NbtvfNSokXHUSsrpgZ/view?usp=sharing
-
-
-https://drive.google.com/file/d/1ui_jSAfB1Hm-dfRdk9BuYE33R8Usk2Nw/view?usp=sharing
