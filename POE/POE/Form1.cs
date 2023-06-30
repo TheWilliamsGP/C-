@@ -1,5 +1,6 @@
 namespace POE
 {
+        //This is Subscriber Class
     public partial class Form1 : Form
     {
         // create a new list thats stores all the ingredients under a specific name typed by the user
